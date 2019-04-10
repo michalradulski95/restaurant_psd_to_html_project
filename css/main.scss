@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:700|Sintony:400,700');
 $colors: ( accent: rgb(254, 161, 0),
 clients: rgb(254, 76, 141),
@@ -70,20 +69,34 @@ $desktop3: 800px;
     }
 }
 
+$small-phone: 768px;
+@mixin small-phone {
+    @media (max-width:#{$small-phone}) {
+        @content
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    @include small-phone {
+        width: 100%;
+    }
 }
 
 .navbar {
     display: flex;
     justify-content: center;
     position: fixed;
-    width: 100%;
+    flex-wrap: wrap;
     padding: add-padding(small);
+    width: 100%;
     z-index: 999;
     background-color: #ffffff;
+    @include small-phone {
+        width: 100%;
+    }
     .hammburger-menu {
         width: 40px;
         height: 35px;
@@ -121,8 +134,10 @@ body {
                 position: absolute;
                 right: 0;
                 z-index: 2;
-                width: 150px;
                 padding-top: add-padding(small);
+                display: flex;
+                flex-direction: column;
+                top: -30%;
             }
             .hammburger-links a {
                 border-bottom: 1px solid black;
@@ -151,6 +166,9 @@ body {
         background-color: color(accent);
         border: none;
         border-radius: $border-radius;
+        @include small-phone {
+            display: none;
+        }
     }
     .button a {
         border: $border;
@@ -171,11 +189,14 @@ body {
     background-image: url("../images/banner-img.png");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%vh;
+    width: 100%;
     height: 570px;
     z-index: 1;
     padding-top: 50px;
     position: position-set(belowe);
+    @include small-phone {
+        width: 100%;
+    }
     .carousel {
         top: 50%;
         position: absolute;
@@ -208,7 +229,7 @@ body {
         h1 {
             font-size: 56px;
             line-height: 0.5;
-            @include desktop1 {
+            @include small-phone {
                 line-height: 0.9;
             }
         }
@@ -216,7 +237,7 @@ body {
             font-size: 40px;
             line-height: 0;
             padding-left: add-padding(small);
-            @include desktop1 {
+            @include small-phone {
                 line-height: 0.7;
             }
         }
@@ -229,9 +250,9 @@ body {
         top: 70%;
         left: 15%;
         z-index: 1;
-        @include desktop1 {
-            top: 80%;
-            left: 50%;
+        @include small-phone {
+            top: 69%;
+            left: 57%;
         }
     }
 }
@@ -239,9 +260,13 @@ body {
 .banner-under {
     background-color: rgb(237, 241, 243);
     min-height: 102px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @include small-phone {
+        flex-direction: column;
+    }
     .banner-content1 {
         z-index: 2;
         height: 35px;
@@ -279,10 +304,13 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
     margin: 50px 0;
+    @include small-phone {
+        width: 100%;
+    }
     .left-side {
         max-width: 545px;
-        justify-self: end;
         h2 {
             font-family: font-family-set(headings);
             font-weight: 700;
@@ -297,15 +325,16 @@ body {
             max-width: 545px;
         }
         .button-logo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-wrap: wrap;
             padding: add-padding(medium);
             .button {
-                max-width: 149px;
+                min-width: 149px;
                 height: 51px;
                 background-color: color(accent);
                 border-radius: 6px;
                 text-align: center;
+                margin-right: add-padding(large);
                 a {
                     text-decoration: none !important;
                     color: color(font-white);
@@ -319,16 +348,21 @@ body {
         }
     }
     .right-side {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-self: start;
+        display: flex;
+        flex-wrap: wrap;
         padding-left: add-padding(medium);
+        @include small-phone {
+            justify-content: center;
+        }
         .image-show-first {
             padding-top: 60px;
             text-align: end;
             img {
                 padding-top: add-padding(small);
                 padding-right: add-padding(small);
+                @include small-phone {
+                    padding-right: 0;
+                }
             }
         }
         .image-show-second {
@@ -341,14 +375,22 @@ body {
 }
 
 .specials {
+    width: 100%;
     min-height: 890px;
+    @include small-phone {
+        width: 100%;
+        height: 1300px;
+    }
     .wrapper {
+        width: 100%;
         position: position-set(under);
         text-align: center;
-        width: 100%;
         padding-top: add-padding(large);
         background-image: url(../images/special-section-background.png);
         max-height: 440px;
+        @include small-phone {
+            width: 100%;
+        }
         .heading {
             font-family: font-family-set(headings);
             color: #fff;
@@ -407,10 +449,16 @@ body {
                 }
             }
             .first-dish {
-                justify-self: end;
                 margin-right: add-padding(small);
                 max-width: 570px;
                 box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
+                @include small-phone {
+                    width: 100%;
+                    margin-left: add-padding(small);
+                    img {
+                        width: 100%;
+                    }
+                }
                 .description {
                     max-width: 430px;
                     margin: 0 auto;
@@ -423,6 +471,13 @@ body {
                 box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
                 z-index: 1;
                 background: #fff;
+                @include small-phone {
+                    max-width: 100%;
+                    margin: add-padding(small) add-padding(small) 0 add-padding(small);
+                    img {
+                        max-width: 100%;
+                    }
+                }
                 .description {
                     max-width: 430px;
                     margin: 0 auto;
@@ -437,16 +492,26 @@ body {
             z-index: -1;
             top: 70%;
             right: 13%;
+            @include small-phone {
+                display: none;
+            }
         }
     }
 }
 
 .food-menu {
+    width: 100%;
     margin-top: 100px;
     height: 690px;
     position: relative;
+    @include small-phone {
+        height: 1100px;
+    }
     .placeholder1 {
         position: absolute;
+        @include small-phone {
+            display: none;
+        }
     }
     h2 {
         font-family: font-family-set(headings);
@@ -458,6 +523,7 @@ body {
         border-bottom: 2px dotted rgb(225, 225, 225);
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         .item {
             padding: 0 add-padding(large);
             text-align: center;
@@ -524,446 +590,114 @@ body {
     .placeholder2 {
         position: absolute;
         right: 30%;
-    }
-=======
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700|Sintony:400,700');
-$colors: ( accent: rgb(254, 161, 0),
-clients: rgb(254, 76, 141),
-font-white: #fff,
-font-black: #000000 !important,
-);
-$font-family: ( headings:'Playfair Display',
-description: 'Sintony',
-);
-$font-size: (small: 14px,
-medium: 35px,
-);
-$border: 1px solid #ffffff;
-$border-radius: 7px;
-$positions: (belowe: relative,
-under:absolute);
-$padding: ( small:10px,
-medium:20px,
-large:30px);
-@function color ($color-name) {
-    @return map-get($colors,
-    $color-name)
-}
-
-;
-@function font-family-set ($font-family-name) {
-    @return map-get($font-family,
-    $font-family-name)
-}
-
-;
-@function font-size-set ($font-size-name) {
-    @return map-get($font-size,
-    $font-size-name)
-}
-
-;
-@function position-set ($position-name) {
-    @return map-get($positions,
-    $position-name)
-}
-
-;
-@function add-padding ($padding-name) {
-    @return map-get($padding,
-    $padding-name)
-}
-
-;
-$desktop1: 996px;
-@mixin desktop1 {
-    @media (max-width: #{$desktop1}) {
-        @content
-    }
-}
-
-;
-$desktop2: 890px;
-@mixin desktop2 {
-    @media (max-width: #{$desktop2}) {
-        @content
-    }
-}
-
-$desktop3: 800px;
-@mixin dekstop3 {
-    @media (min-width: #{$desktop3}) {
-        @content
-    }
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    padding: add-padding(small);
-    z-index: 999;
-    background-color: #ffffff;
-    .hammburger-menu {
-        width: 40px;
-        height: 35px;
-        border: 0;
-        display: none;
-        margin: 0 auto;
-        cursor: pointer;
-        @include desktop2 {
-            display: inline;
-        }
-        div {
-            background-color: color(accent);
-            display: block;
-            width: 40px;
-            height: 4px;
-            margin: 5px add-padding(medium);
-            transition: all 0.2s ease-out;
-        }
-    }
-    .navbar-nav {
-        .hammburger-links {
-            margin-top: add-padding(small);
-            a {
-                color: color(font-black);
-                font-family: font-family-set(description);
-                font-weight: 700;
-                size: font-size-set(small);
-                text-decoration: none;
-                padding: add-padding(small);
-            }
-        }
-        @include desktop2 {
-            .hammburger-links {
-                visibility: hidden;
-                position: absolute;
-                right: 0;
-                z-index: 2;
-                width: 150px;
-                padding-top: add-padding(small);
-            }
-            .hammburger-links a {
-                border-bottom: 1px solid black;
-            }
-            &.open .hammburger-links {
-                visibility: visible;
-            }
-        }
-        &.open {
-            .hammburger-menu {
-                .one {
-                    transform: translateY(9px) rotate(45deg);
-                }
-                .two {
-                    opacity: 0;
-                }
-                .three {
-                    transform: translateY(-9px) rotate(-45deg);
-                }
-            }
-        }
-    }
-    .button {
-        width: 200px;
-        height: 47px;
-        background-color: color(accent);
-        border: none;
-        border-radius: $border-radius;
-    }
-    .button a {
-        border: $border;
-        color: color(font-white);
-        border-radius: $border-radius;
-        text-decoration: none !important;
-        margin-left: 3px;
-        padding: add-padding(small);
-        position: relative;
-        top: 26%;
-    }
-    .button img {
-        padding-right: 2px;
-    }
-}
-
-.banner {
-    background-image: url("../images/banner-img.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%vh;
-    height: 570px;
-    z-index: 1;
-    padding-top: 50px;
-    position: position-set(belowe);
-    .carousel {
-        top: 50%;
-        position: absolute;
-        .button {
-            height: 10px;
-            width: 10px;
-            border: 2px solid rgb(255, 255, 255);
-            margin: add-padding(small);
-            border-radius: 9px;
-            position: relative;
-            .first {
-                position: absolute;
-                margin-top: 3px;
-                margin-left: 3px;
-                height: 4px;
-                width: 4px;
-                border-radius: 5px;
-                background: rgb(254, 161, 0);
-            }
-        }
-    }
-    .banner-text {
-        font-family: font-family-set(headings);
-        font-weight: 700;
-        position: position-set(under);
-        color: color(font-white);
-        left: 15%;
-        top: 40%;
-        z-index: 2;
-        h1 {
-            font-size: 56px;
-            line-height: 0.5;
-            @include desktop1 {
-                line-height: 0.9;
-            }
-        }
-        h2 {
-            font-size: 40px;
-            line-height: 0;
-            padding-left: add-padding(small);
-            @include desktop1 {
-                line-height: 0.7;
-            }
-        }
-        span {
-            color: color(accent);
-        }
-    }
-    .pink-img {
-        position: position-set(under);
-        top: 70%;
-        left: 15%;
         z-index: 1;
-        @include desktop1 {
-            top: 80%;
-            left: 50%;
+        @include small-phone {
+            display: none;
         }
     }
 }
 
-.banner-under {
-    background-color: rgb(237, 241, 243);
-    height: 102px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-row: 1;
-    .banner-content1 {
-        z-index: 2;
-        text-align: end;
-        height: 35px;
-        padding-top: add-padding(small);
-        padding-right: add-padding(small);
-        p {
-            font-family: font-family-set(description);
-            font-weight: 700;
-            font-size: font-size-set(small);
-            padding: 20px 5px;
-            display: inline-block;
-        }
-        img {
-            height: 35px;
-            padding: 0 add-padding(small);
-        }
-        span {
-            color: rgb(254, 161, 0);
-        }
-        @include desktop1 {
-            left: 20%;
-        }
-    }
-    .banner-content2 {
-        h3 {
-            font-family: font-family-set(description);
-            font-weight: 700;
-            font-size: font-size-set(medium);
-            display: inline-block;
-        }
-    }
-}
-
-.about-section {
+.clients {
+    background-image: url("../images/happy-clients-background.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 460px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    .left-side {
-        max-width: 545px;
-        justify-self: end;
+    align-items: center;
+    position: relative;
+    .content {
+        text-align: center;
         h2 {
             font-family: font-family-set(headings);
             font-weight: 700;
             font-size: font-size-set(medium);
-            padding: add-padding(small);
+            color: #fff;
         }
         p {
+            position: relative;
+            width: 740px;
+            margin: 0 auto;
             font-family: font-family-set(description);
             font-weight: 400;
-            font-size: font-size-set(small);
-            padding: add-padding(small);
-            max-width: 545px;
-        }
-        .button-logo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: add-padding(medium);
-            .button {
-                max-width: 149px;
-                height: 51px;
-                background-color: color(accent);
-                border-radius: 6px;
-                text-align: center;
-                a {
-                    text-decoration: none !important;
-                    color: color(font-white);
-                    position: position-set(belowe);
-                    top: 25%;
-                    font-family: font-family-set(description);
-                    font-weight: 700;
-                    font-size: font-size-set(small);
+            font-size: 0.938em;
+            color: #fff;
+            @include small-phone {
+                max-width: 380px;
+            }
+            &::before {
+                content: '“';
+                position: absolute;
+                font-size: 8rem;
+                top: -80%;
+                left: -10%;
+                @include small-phone {
+                    top: -45%;
+                }
+            }
+            &::after {
+                content: '”';
+                position: absolute;
+                color: #ffffff;
+                font-size: 8rem;
+                top: 40%;
+                left: 98%;
+                @include small-phone {
+                    top: 65%;
                 }
             }
         }
-    }
-    .right-side {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-self: start;
-        padding-left: add-padding(medium);
-        .image-show-first {
-            padding-top: 60px;
-            text-align: end;
-            img {
-                padding-top: add-padding(small);
-                padding-right: add-padding(small);
-            }
-        }
-        .image-show-second {
-            text-align: start;
-            img {
-                padding-top: add-padding(small);
-            }
+        img {
+            margin-top: add-padding(large);
         }
     }
 }
 
-.specials {
-    background-image: url(../images/special-section-background.png);
-    min-height: 440px;
-    position: relative;
-    .wrapper {
-        position: position-set(under);
-        text-align: center;
-        width: 100%;
-        height: 890px;
-        padding-top: add-padding(large);
-        .heading {
-            font-family: font-family-set(headings);
-            color: #fff;
-            font-size: font-size-set(medium);
-            font-weight: 700;
-        }
-        .images {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            h2 {
-                font-family: font-family-set(headings);
-                font-weight: 700;
-                font-size: 26px;
-            }
-            p {
-                font-family: font-family-set(description);
-                font-size: font-size-set(small);
-            }
-            .contact {
-                padding: add-padding(medium) 0;
-                h3,
-                h4 {
-                    display: inline;
-                    padding: 0 add-padding(medium);
-                }
-                span {
-                    font-family: font-family-set(description);
-                    font-weight: 700;
-                    font-size: 13px;
-                    display: inline-block;
-                    text-align: start;
-                    &:after {
-                        content: '';
-                        height: 100%;
-                        width: 1px;
-                        border-right: 1px solid rgb(225, 225, 225);
-                        padding-right: add-padding(small);
-                        padding-top: add-padding(small);
-                    }
-                    a {
-                        color: rgb(254, 124, 171);
-                    }
-                }
-                h3 {
-                    font-family: font-family-set(headings);
-                    font-weight: 700;
-                    font-size: 26px;
-                }
-                h4 {
-                    font-family: font-family-set(headings);
-                    font-weight: 700;
-                    font-size: 30px;
-                    color: color(accent);
-                }
-            }
-            .first-dish {
-                justify-self: end;
-                margin-right: add-padding(small);
-                max-width: 570px;
-                box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
-                .description {
-                    max-width: 430px;
-                    margin: 0 auto;
-                    padding-bottom: add-padding(large);
-                    border-bottom: 1px solid rgb(225, 225, 225);
-                }
-            }
-            .second-dish {
-                max-width: 570px;
-                box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
-                z-index: 1;
-                .description {
-                    max-width: 430px;
-                    margin: 0 auto;
-                    padding-bottom: add-padding(large);
-                    border-bottom: 1px solid rgb(225, 225, 225);
-                    z-index: 1;
-                }
-            }
-        }
-    }
-    .last-offert {
+.arrow-button {
+    width: 100%;
+    z-index: 1;
+    .arrow {
+        width: 5vmin;
+        height: 5vmin;
         position: absolute;
-        z-index: -1;
-        top: 78%;
-        right: 13%;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-width: .2vmin .2vmin 0 0;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+            display: block;
+        }
+        &::after {
+            content: '';
+            float: left;
+            position: relative;
+            top: -100%;
+            width: 100%;
+            height: 100%;
+            border-width: 0 .1vmin 0 0;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+        }
     }
->>>>>>> 2b9ebc9a75701afc658dfb571dd78be30b532525
+    #left {
+        transform: rotate(225deg);
+        left: 20%;
+        top: 40%;
+        @include small-phone {
+            top: 40%;
+            left: 5%;
+        }
+    }
+    #right {
+        transform: rotate(45deg);
+        right: 20%;
+        top: 40%;
+        @include small-phone {
+            top: 40%;
+            right: 5%;
+        }
+    }
 }
