@@ -76,13 +76,13 @@ $small-phone: 768px;
     }
 }
 
-body {
-    margin: 0;
-    padding: 0;
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
     overflow-x: hidden;
-    @include small-phone {
-        width: 100%;
-    }
 }
 
 .navbar {
@@ -95,16 +95,22 @@ body {
     z-index: 999;
     background-color: #ffffff;
     @include small-phone {
-        width: 100%;
+        flex-direction: column;
+        max-width: 360px;
+    }
+    .brand {
+        @include small-phone {
+            margin-bottom: add-padding(medium);
+            text-align: center;
+        }
     }
     .hammburger-menu {
         width: 40px;
         height: 35px;
         border: 0;
         display: none;
-        margin: 0 auto;
         cursor: pointer;
-        @include desktop2 {
+        @include small-phone {
             display: inline;
         }
         div {
@@ -112,35 +118,36 @@ body {
             display: block;
             width: 40px;
             height: 4px;
-            margin: 5px add-padding(medium);
+            margin: 5px auto;
             transition: all 0.2s ease-out;
         }
     }
     .navbar-nav {
         .hammburger-links {
-            margin-top: add-padding(small);
             a {
                 color: color(font-black);
                 font-family: font-family-set(description);
                 font-weight: 700;
                 size: font-size-set(small);
                 text-decoration: none;
-                padding: add-padding(small);
+                padding: add-padding(medium);
+                color: rgb(254, 161, 0);
+                text-align: center;
             }
         }
-        @include desktop2 {
+        @include small-phone {
             .hammburger-links {
                 visibility: hidden;
                 position: absolute;
-                right: 0;
                 z-index: 2;
-                padding-top: add-padding(small);
                 display: flex;
                 flex-direction: column;
-                top: -30%;
+                background: #fff;
+                width: 100%;
+                margin-left: -15px;
             }
             .hammburger-links a {
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid rgb(254, 161, 0);
             }
             &.open .hammburger-links {
                 visibility: visible;
@@ -226,11 +233,14 @@ body {
         left: 15%;
         top: 40%;
         z-index: 2;
+        @include small-phone {
+            top: 15%;
+        }
         h1 {
             font-size: 56px;
             line-height: 0.5;
             @include small-phone {
-                line-height: 0.9;
+                line-height: 1;
             }
         }
         h2 {
@@ -251,8 +261,7 @@ body {
         left: 15%;
         z-index: 1;
         @include small-phone {
-            top: 69%;
-            left: 57%;
+            top: 60%;
         }
     }
 }
@@ -264,9 +273,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    @include small-phone {
-        flex-direction: column;
-    }
     .banner-content1 {
         z-index: 2;
         height: 35px;
@@ -296,6 +302,9 @@ body {
             font-family: font-family-set(description);
             font-weight: 700;
             font-size: font-size-set(medium);
+            @include small-phone {
+                text-align: center;
+            }
         }
     }
 }
@@ -335,6 +344,9 @@ body {
                 border-radius: 6px;
                 text-align: center;
                 margin-right: add-padding(large);
+                @include small-phone {
+                    margin-bottom: 10px;
+                }
                 a {
                     text-decoration: none !important;
                     color: color(font-white);
@@ -377,13 +389,13 @@ body {
 .specials {
     width: 100%;
     min-height: 890px;
+    z-index: 1;
     @include small-phone {
         width: 100%;
         height: 1300px;
     }
     .wrapper {
         width: 100%;
-        position: position-set(under);
         text-align: center;
         padding-top: add-padding(large);
         background-image: url(../images/special-section-background.png);
@@ -455,6 +467,7 @@ body {
                 @include small-phone {
                     width: 100%;
                     margin-left: add-padding(small);
+                    margin-top: 31px;
                     img {
                         width: 100%;
                     }
@@ -464,6 +477,7 @@ body {
                     margin: 0 auto;
                     padding-bottom: add-padding(large);
                     border-bottom: 1px solid rgb(225, 225, 225);
+                    z-index: 1;
                 }
             }
             .second-dish {
@@ -619,7 +633,7 @@ body {
                 content: '';
                 width: 100%;
                 height: 100%;
-                border-width: .2vmin .2vmin 0 0;
+                border-width: .1vmin .2vmin 0 0;
                 border-style: solid;
                 border-color: rgb(255, 255, 255);
                 display: block;
@@ -631,7 +645,7 @@ body {
                 top: -100%;
                 width: 100%;
                 height: 100%;
-                border-width: 0 .1vmin 0 0;
+                border-width: .1vmin .2vmin 0 0;
                 border-style: solid;
                 border-color: rgb(255, 255, 255);
             }
@@ -672,16 +686,17 @@ body {
             font-size: 0.938em;
             color: #fff;
             @include small-phone {
-                max-width: 380px;
+                max-width: 300px;
             }
             &::before {
                 content: '“';
                 position: absolute;
                 font-size: 8rem;
                 top: -80%;
-                left: -10%;
+                left: -8%;
                 @include small-phone {
-                    top: -45%;
+                    top: -30%;
+                    left: -15%;
                 }
             }
             &::after {
@@ -690,7 +705,7 @@ body {
                 color: #ffffff;
                 font-size: 8rem;
                 top: 40%;
-                left: 98%;
+                left: 95%;
                 @include small-phone {
                     top: 65%;
                 }
@@ -720,6 +735,13 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
+        img {
+            @include small-phone {
+                max-width: 320px;
+                max-height: 200px;
+            }
+        }
         .wrapper {
             flex-direction: column;
             min-width: 570px;
@@ -727,6 +749,9 @@ body {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
+                @include small-phone {
+                    flex-direction: column;
+                }
                 input {
                     padding: add-padding(medium);
                     border: none;
@@ -775,6 +800,10 @@ body {
                 margin-top: 50px;
                 align-items: center;
                 justify-content: space-evenly;
+                @include small-phone {
+                    margin-top: 20px;
+                    flex-direction: column;
+                }
                 .button {
                     width: 200px;
                     height: 47px;
@@ -782,6 +811,9 @@ body {
                     border: none;
                     border-radius: $border-radius;
                     text-align: center;
+                    @include small-phone {
+                        max-width: 160px;
+                    }
                     a {
                         color: color(font-white);
                         border-radius: $border-radius;
@@ -813,87 +845,151 @@ body {
 }
 
 .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     background: rgb(55, 56, 68);
     padding: 150px;
-    h4 {
-        font-family: font-family-set(headings);
-        font-weight: 700;
-        font-size: 24px;
-        color: color(font-white);
+    position: relative;
+    @include small-phone {
+        padding: 0;
+        padding-bottom: add-padding(medium);
     }
-    .navigation {
+    .wrapper {
         display: flex;
-        flex-direction: column;
-        li {
-            list-style: none;
-            font-family: font-family-set(description);
-            font-weight: 400;
-            font-size: font-size-set(small);
-            color: rgb(157, 162, 168);
+        flex-direction: row;
+        justify-content: space-evenly;
+        @include small-phone {
+            flex-direction: column;
+            text-align: center;
         }
-    }
-    .newsletter {
-        .heading {
-            p {
+        h4 {
+            font-family: font-family-set(headings);
+            font-weight: 700;
+            font-size: 24px;
+            color: color(font-white);
+        }
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            li {
+                list-style: none;
                 font-family: font-family-set(description);
                 font-weight: 400;
                 font-size: font-size-set(small);
                 color: rgb(157, 162, 168);
             }
         }
-        .mail {
-            display: flex;
-            flex-direction: row;
-            position: relative;
-            img {
-                position: absolute;
-                left: 5%;
-                top: 35%;
-            }
-            input {
-                min-width: 310px;
-                background: rgb(55, 56, 68);
-                border-radius: 5px;
-                border: 1px solid rgb(82, 83, 94);
-                margin-right: add-padding(small);
-                &::placeholder {
-                    color: #fff;
-                    position: relative;
-                    left: 20%;
-                }
-            }
-            .button {
-                width: 200px;
-                height: 47px;
-                background-color: color(accent);
-                border: none;
-                border-radius: $border-radius;
+        .newsletter {
+            @include small-phone {
                 text-align: center;
-                a {
-                    color: color(font-white);
-                    border-radius: $border-radius;
-                    text-decoration: none;
-                    padding: add-padding(small);
-                    position: relative;
-                    top: 30%;
+            }
+            .heading {
+                p {
                     font-family: font-family-set(description);
-                    font-weight: 700;
+                    font-weight: 400;
                     font-size: font-size-set(small);
+                    color: rgb(157, 162, 168);
                 }
+            }
+            .mail {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                @include small-phone {
+                    flex-direction: column;
+                }
+                img {
+                    position: absolute;
+                    left: 5%;
+                    top: 35%;
+                    @include small-phone {
+                        top: 18%;
+                        left: 15%;
+                    }
+                }
+                input {
+                    min-width: 310px;
+                    background: rgb(55, 56, 68);
+                    border-radius: 5px;
+                    border: 1px solid rgb(82, 83, 94);
+                    margin-right: add-padding(small);
+                    &::placeholder {
+                        color: #fff;
+                        position: relative;
+                        left: 20%;
+                    }
+                    @include small-phone {
+                        max-width: 150px;
+                        min-height: 40px;
+                        margin: 0 auto 10px;
+                    }
+                }
+                .button {
+                    width: 200px;
+                    height: 47px;
+                    background-color: color(accent);
+                    border: none;
+                    border-radius: $border-radius;
+                    text-align: center;
+                    @include small-phone {
+                        margin: 0 auto;
+                    }
+                    a {
+                        color: color(font-white);
+                        border-radius: $border-radius;
+                        text-decoration: none;
+                        padding: add-padding(small);
+                        position: relative;
+                        top: 30%;
+                        font-family: font-family-set(description);
+                        font-weight: 700;
+                        font-size: font-size-set(small);
+                    }
+                }
+            }
+            .socials {
+                margin-top: add-padding(large);
             }
         }
-        .socials {
-            margin-top: add-padding(large);
+        .app {
+            display: flex;
+            flex-direction: column;
+            img {
+                margin-top: add-padding(small);
+                @include small-phone {
+                    width: 200px;
+                    margin: 0 auto 10px;
+                }
+            }
         }
     }
-    .app {
-        display: flex;
-        flex-direction: column;
-        img {
-            margin-top: add-padding(small);
+    .copyright {
+        text-align: center;
+        margin-top: 50px;
+        .line {
+            border-top: 1px solid rgb(82, 83, 94);
+            height: 10px;
+            width: 450px;
+            @include small-phone {
+                display: none;
+            }
+        }
+        #left-line {
+            position: absolute;
+            left: 17%;
+            top: 73%;
+        }
+        #right-line {
+            position: absolute;
+            right: 17%;
+            top: 73%;
+        }
+        p {
+            font-family: font-family-set(description);
+            font-weight: 400;
+            font-size: 13px;
+            color: rgb(202, 202, 206);
+        }
+        span {
+            color: rgb(142, 145, 152);
         }
     }
 }
