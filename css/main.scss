@@ -2,7 +2,7 @@
 $colors: ( accent: rgb(254, 161, 0),
 clients: rgb(254, 76, 141),
 font-white: #fff,
-font-black: #000000 !important,
+font-black: #000000,
 );
 $font-family: ( headings:'Playfair Display',
 description: 'Sintony',
@@ -607,6 +607,54 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 0;
+    .arrow-button {
+        width: 100%;
+        z-index: 1;
+        .arrow {
+            width: 5vmin;
+            height: 5vmin;
+            position: absolute;
+            &::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                border-width: .2vmin .2vmin 0 0;
+                border-style: solid;
+                border-color: rgb(255, 255, 255);
+                display: block;
+            }
+            &::after {
+                content: '';
+                float: left;
+                position: relative;
+                top: -100%;
+                width: 100%;
+                height: 100%;
+                border-width: 0 .1vmin 0 0;
+                border-style: solid;
+                border-color: rgb(255, 255, 255);
+            }
+        }
+        #left {
+            transform: rotate(225deg);
+            left: 20%;
+            top: 40%;
+            @include small-phone {
+                top: 40%;
+                left: 5%;
+            }
+        }
+        #right {
+            transform: rotate(45deg);
+            right: 20%;
+            top: 40%;
+            @include small-phone {
+                top: 40%;
+                right: 5%;
+            }
+        }
+    }
     .content {
         text-align: center;
         h2 {
@@ -654,50 +702,198 @@ body {
     }
 }
 
-.arrow-button {
+.reserve-table {
+    min-height: 600px;
     width: 100%;
-    z-index: 1;
-    .arrow {
-        width: 5vmin;
-        height: 5vmin;
-        position: absolute;
-        &::before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            border-width: .2vmin .2vmin 0 0;
-            border-style: solid;
-            border-color: rgb(255, 255, 255);
-            display: block;
+    background: rgb(237, 241, 243);
+    margin-top: -30px;
+    .heading {
+        text-align: center;
+        h2 {
+            padding-top: 100px;
+            font-family: font-family-set(headings);
+            font-weight: 700;
+            font-size: font-size-set(medium);
         }
-        &::after {
-            content: '';
-            float: left;
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .wrapper {
+            flex-direction: column;
+            min-width: 570px;
+            .contact-items {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                input {
+                    padding: add-padding(medium);
+                    border: none;
+                    background: rgb(237, 241, 243);
+                    min-width: 205px;
+                }
+                .left {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    input {
+                        border-bottom: 1px solid rgb(199, 209, 214);
+                    }
+                    label {
+                        position: absolute;
+                    }
+                    .item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            margin-left: -30px;
+                        }
+                    }
+                }
+                .right {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    input {
+                        border-bottom: 1px solid rgb(199, 209, 214);
+                    }
+                    .item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            margin-left: -30px;
+                        }
+                    }
+                }
+            }
+            .under-contact {
+                display: flex;
+                flex-direction: row;
+                margin-top: 50px;
+                align-items: center;
+                justify-content: space-evenly;
+                .button {
+                    width: 200px;
+                    height: 47px;
+                    background-color: color(accent);
+                    border: none;
+                    border-radius: $border-radius;
+                    text-align: center;
+                    a {
+                        color: color(font-white);
+                        border-radius: $border-radius;
+                        text-decoration: none;
+                        padding: add-padding(small);
+                        position: relative;
+                        top: 30%;
+                        font-family: font-family-set(description);
+                        font-weight: 700;
+                        font-size: font-size-set(small);
+                    }
+                }
+                p {
+                    font-family: font-family-set(description);
+                    font-weight: 700;
+                    font-size: 13px;
+                }
+                span {
+                    color: rgb(251, 109, 161);
+                }
+                h4 {
+                    font-family: font-family-set(headings);
+                    font-weight: 700;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background: rgb(55, 56, 68);
+    padding: 150px;
+    h4 {
+        font-family: font-family-set(headings);
+        font-weight: 700;
+        font-size: 24px;
+        color: color(font-white);
+    }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        li {
+            list-style: none;
+            font-family: font-family-set(description);
+            font-weight: 400;
+            font-size: font-size-set(small);
+            color: rgb(157, 162, 168);
+        }
+    }
+    .newsletter {
+        .heading {
+            p {
+                font-family: font-family-set(description);
+                font-weight: 400;
+                font-size: font-size-set(small);
+                color: rgb(157, 162, 168);
+            }
+        }
+        .mail {
+            display: flex;
+            flex-direction: row;
             position: relative;
-            top: -100%;
-            width: 100%;
-            height: 100%;
-            border-width: 0 .1vmin 0 0;
-            border-style: solid;
-            border-color: rgb(255, 255, 255);
+            img {
+                position: absolute;
+                left: 5%;
+                top: 35%;
+            }
+            input {
+                min-width: 310px;
+                background: rgb(55, 56, 68);
+                border-radius: 5px;
+                border: 1px solid rgb(82, 83, 94);
+                margin-right: add-padding(small);
+                &::placeholder {
+                    color: #fff;
+                    position: relative;
+                    left: 20%;
+                }
+            }
+            .button {
+                width: 200px;
+                height: 47px;
+                background-color: color(accent);
+                border: none;
+                border-radius: $border-radius;
+                text-align: center;
+                a {
+                    color: color(font-white);
+                    border-radius: $border-radius;
+                    text-decoration: none;
+                    padding: add-padding(small);
+                    position: relative;
+                    top: 30%;
+                    font-family: font-family-set(description);
+                    font-weight: 700;
+                    font-size: font-size-set(small);
+                }
+            }
+        }
+        .socials {
+            margin-top: add-padding(large);
         }
     }
-    #left {
-        transform: rotate(225deg);
-        left: 20%;
-        top: 40%;
-        @include small-phone {
-            top: 40%;
-            left: 5%;
-        }
-    }
-    #right {
-        transform: rotate(45deg);
-        right: 20%;
-        top: 40%;
-        @include small-phone {
-            top: 40%;
-            right: 5%;
+    .app {
+        display: flex;
+        flex-direction: column;
+        img {
+            margin-top: add-padding(small);
         }
     }
 }

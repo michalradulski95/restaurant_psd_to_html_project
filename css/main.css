@@ -64,7 +64,7 @@ body {
 }
 
 .navbar .navbar-nav .hammburger-links a {
-  color: #000000 !important;
+  color: #000000;
   font-family: "Sintony";
   font-weight: 700;
   size: 14px;
@@ -723,6 +723,68 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  padding: 0;
+}
+
+.clients .arrow-button {
+  width: 100%;
+  z-index: 1;
+}
+
+.clients .arrow-button .arrow {
+  width: 5vmin;
+  height: 5vmin;
+  position: absolute;
+}
+
+.clients .arrow-button .arrow::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-width: .2vmin .2vmin 0 0;
+  border-style: solid;
+  border-color: white;
+  display: block;
+}
+
+.clients .arrow-button .arrow::after {
+  content: '';
+  float: left;
+  position: relative;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  border-width: 0 .1vmin 0 0;
+  border-style: solid;
+  border-color: white;
+}
+
+.clients .arrow-button #left {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+  left: 20%;
+  top: 40%;
+}
+
+@media (max-width: 768px) {
+  .clients .arrow-button #left {
+    top: 40%;
+    left: 5%;
+  }
+}
+
+.clients .arrow-button #right {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: 20%;
+  top: 40%;
+}
+
+@media (max-width: 768px) {
+  .clients .arrow-button #right {
+    top: 40%;
+    right: 5%;
+  }
 }
 
 .clients .content {
@@ -785,64 +847,321 @@ body {
   margin-top: 30px;
 }
 
-.arrow-button {
+.reserve-table {
+  min-height: 600px;
   width: 100%;
-  z-index: 1;
+  background: #edf1f3;
+  margin-top: -30px;
 }
 
-.arrow-button .arrow {
-  width: 5vmin;
-  height: 5vmin;
+.reserve-table .heading {
+  text-align: center;
+}
+
+.reserve-table .heading h2 {
+  padding-top: 100px;
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.reserve-table .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.reserve-table .contact-form .wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 570px;
+}
+
+.reserve-table .contact-form .wrapper .contact-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.reserve-table .contact-form .wrapper .contact-items input {
+  padding: 20px;
+  border: none;
+  background: #edf1f3;
+  min-width: 205px;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .left input {
+  border-bottom: 1px solid #c7d1d6;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .left label {
   position: absolute;
 }
 
-.arrow-button .arrow::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  border-width: .2vmin .2vmin 0 0;
-  border-style: solid;
-  border-color: white;
-  display: block;
+.reserve-table .contact-form .wrapper .contact-items .left .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.arrow-button .arrow::after {
-  content: '';
-  float: left;
+.reserve-table .contact-form .wrapper .contact-items .left .item img {
+  margin-left: -30px;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .right input {
+  border-bottom: 1px solid #c7d1d6;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .right .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.reserve-table .contact-form .wrapper .contact-items .right .item img {
+  margin-left: -30px;
+}
+
+.reserve-table .contact-form .wrapper .under-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.reserve-table .contact-form .wrapper .under-contact .button {
+  width: 200px;
+  height: 47px;
+  background-color: #fea100;
+  border: none;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.reserve-table .contact-form .wrapper .under-contact .button a {
+  color: #fff;
+  border-radius: 7px;
+  text-decoration: none;
+  padding: 10px;
   position: relative;
-  top: -100%;
-  width: 100%;
-  height: 100%;
-  border-width: 0 .1vmin 0 0;
-  border-style: solid;
-  border-color: white;
+  top: 30%;
+  font-family: "Sintony";
+  font-weight: 700;
+  font-size: 14px;
 }
 
-.arrow-button #left {
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
+.reserve-table .contact-form .wrapper .under-contact p {
+  font-family: "Sintony";
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.reserve-table .contact-form .wrapper .under-contact span {
+  color: #fb6da1;
+}
+
+.reserve-table .contact-form .wrapper .under-contact h4 {
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background: #373844;
+  padding: 150px;
+}
+
+.footer h4 {
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+}
+
+.footer .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .navigation li {
+  list-style: none;
+  font-family: "Sintony";
+  font-weight: 400;
+  font-size: 14px;
+  color: #9da2a8;
+}
+
+.footer .newsletter .heading p {
+  font-family: "Sintony";
+  font-weight: 400;
+  font-size: 14px;
+  color: #9da2a8;
+}
+
+.footer .newsletter .mail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.footer .newsletter .mail img {
+  position: absolute;
+  left: 5%;
+  top: 35%;
+}
+
+.footer .newsletter .mail input {
+  min-width: 310px;
+  background: #373844;
+  border-radius: 5px;
+  border: 1px solid #52535e;
+  margin-right: 10px;
+}
+
+.footer .newsletter .mail input::-webkit-input-placeholder {
+  color: #fff;
+  position: relative;
   left: 20%;
-  top: 40%;
 }
 
-@media (max-width: 768px) {
-  .arrow-button #left {
-    top: 40%;
-    left: 5%;
-  }
+.footer .newsletter .mail input:-ms-input-placeholder {
+  color: #fff;
+  position: relative;
+  left: 20%;
 }
 
-.arrow-button #right {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  right: 20%;
-  top: 40%;
+.footer .newsletter .mail input::-ms-input-placeholder {
+  color: #fff;
+  position: relative;
+  left: 20%;
 }
 
-@media (max-width: 768px) {
-  .arrow-button #right {
-    top: 40%;
-    right: 5%;
-  }
+.footer .newsletter .mail input::placeholder {
+  color: #fff;
+  position: relative;
+  left: 20%;
+}
+
+.footer .newsletter .mail .button {
+  width: 200px;
+  height: 47px;
+  background-color: #fea100;
+  border: none;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.footer .newsletter .mail .button a {
+  color: #fff;
+  border-radius: 7px;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  top: 30%;
+  font-family: "Sintony";
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.footer .newsletter .socials {
+  margin-top: 30px;
+}
+
+.footer .app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .app img {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=main.css.map */
