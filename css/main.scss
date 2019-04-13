@@ -47,24 +47,16 @@ large:30px);
 }
 
 ;
-$desktop1: 996px;
-@mixin desktop1 {
-    @media (max-width: #{$desktop1}) {
+$large: 1440px;
+@mixin large {
+    @media (max-width: #{$large}) {
         @content
     }
 }
 
-;
-$desktop2: 890px;
-@mixin desktop2 {
-    @media (max-width: #{$desktop2}) {
-        @content
-    }
-}
-
-$desktop3: 800px;
-@mixin dekstop3 {
-    @media (min-width: #{$desktop3}) {
+$medium: 768px;
+@mixin medium {
+    @media (min-width: #{$medium}) {
         @content
     }
 }
@@ -268,6 +260,9 @@ html {
         @include small-phone {
             top: 60%;
         }
+        @include large {
+            top: 63%;
+        }
     }
 }
 
@@ -299,9 +294,6 @@ html {
         }
         span {
             color: rgb(254, 161, 0);
-        }
-        @include desktop1 {
-            left: 20%;
         }
     }
     .banner-content2 {
@@ -486,6 +478,10 @@ html {
                         width: 100%;
                     }
                 }
+                @include large {
+                    margin-bottom: 10px;
+                    margin-left: 10px;
+                }
                 .description {
                     max-width: 430px;
                     margin: 0 auto;
@@ -523,6 +519,9 @@ html {
             @include small-phone {
                 display: none;
             }
+            @include large {
+                top: 85%;
+            }
         }
     }
 }
@@ -537,10 +536,20 @@ html {
         margin-top: 150px;
         margin-bottom: 150px;
     }
+    @include medium {
+        margin-top: 300px;
+        height: 650px;
+    }
+    @include large {
+        margin-top: 800px;
+    }
     .placeholder1 {
         position: absolute;
         @include small-phone {
             display: none;
+        }
+        @include large {
+            z-index: -1;
         }
     }
     h2 {
@@ -627,6 +636,9 @@ html {
         @include small-phone {
             display: none;
         }
+        @include large {
+            right: 10%;
+        }
     }
 }
 
@@ -677,6 +689,9 @@ html {
                 top: 40%;
                 left: 5%;
             }
+            @include large {
+                left: 8%;
+            }
         }
         #right {
             transform: rotate(45deg);
@@ -685,6 +700,9 @@ html {
             @include small-phone {
                 top: 40%;
                 right: 5%;
+            }
+            @include large {
+                right: 8%;
             }
         }
     }
@@ -707,6 +725,9 @@ html {
             @include small-phone {
                 max-width: 250px;
             }
+            @include medium {
+                min-width: 500px;
+            }
             &::before {
                 content: '“';
                 position: absolute;
@@ -716,6 +737,9 @@ html {
                 @include small-phone {
                     top: -30%;
                     left: -15%;
+                }
+                @include large {
+                    left: -4%;
                 }
             }
             &::after {
@@ -888,6 +912,9 @@ html {
         .navigation {
             display: flex;
             flex-direction: column;
+            @include large {
+                margin-right: 20px;
+            }
             li {
                 list-style: none;
                 font-family: font-family-set(description);
@@ -922,6 +949,14 @@ html {
                     @include small-phone {
                         top: 18%;
                         left: 15%;
+                    }
+                    @include medium {
+                        top: 15%;
+                        left: 32%;
+                    }
+                    @include large {
+                        top: 37%;
+                        left: 3%;
                     }
                 }
                 input {
@@ -971,6 +1006,9 @@ html {
         .app {
             display: flex;
             flex-direction: column;
+            @include large {
+                margin-left: 20px;
+            }
             img {
                 margin-top: add-padding(small);
                 @include small-phone {
@@ -995,11 +1033,19 @@ html {
             position: absolute;
             left: 17%;
             top: 73%;
+            @include large {
+                width: 280px;
+                left: 5%;
+            }
         }
         #right-line {
             position: absolute;
             right: 17%;
             top: 73%;
+            @include large {
+                width: 280px;
+                right: 5%;
+            }
         }
         p {
             font-family: font-family-set(description);
