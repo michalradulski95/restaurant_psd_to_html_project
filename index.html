@@ -23,8 +23,8 @@
             </div>
             <!-- Group the links -->
             <div class="hammburger-links">
-                <a class="nav-item nav-link " href="#">Home</a>
-                <a class="nav-item nav-link" href="#">Menu</a>
+                <a class="nav-item nav-link" href="#banner">Home</a>
+                <a class="nav-item nav-link" href="#menu">Menu</a>
                 <a class="nav-item nav-link" href="#">Reservation</a>
                 <a class="nav-item nav-link" href="#">Recipe</a>
                 <a class="nav-item nav-link" href="#">Blog</a>
@@ -37,7 +37,7 @@
         </div>
     </nav>
     <!--Banner section-->
-    <div class="banner">
+    <div class="banner" id="banner">
         <div class="carousel" id="carousel">
             <div class="button" id="button1">
                 <div class="active"></div>
@@ -75,7 +75,7 @@
         </div>
     </div>
     <!--About section-->
-    <div class="about-section">
+    <div class="about-section" id="about">
         <div class="left-side">
             <h2>About Restaurent</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
@@ -107,7 +107,7 @@
         </div>
     </div>
     <!--Today special section-->
-    <div class="specials">
+    <div class="specials" id="specials">
         <div class="wrapper">
             <div class="heading">
                 <h2 class="">Today Special</h2>
@@ -144,7 +144,7 @@
         </div>
     </div>
     <!--Food menu section-->
-    <div class="food-menu">
+    <div class="food-menu" id="menu">
         <img class="placeholder1" src="images/food-menu-placeholder.png" alt="">
         <h2>Food Menu</h2>
         <div class="heading ">
@@ -237,16 +237,20 @@
         </div>
     </div>
     <!--Happy client section-->
-    <div class="clients">
+    <div class="clients" id="clients">
         <div class="arrow-button">
-            <a href="">
-                <div class="arrow" id="left"></div>
-            </a>
+            <div class="arrow" id="left"></div>
         </div>
-        <div class="content">
+        <div class="content" id="client1">
             <h2>Happy Clients</h2>
             <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes
                 by accident, sometimes on purpose.</p>
+            <img src="images/happ-client.png" alt="">
+        </div>
+        <div class="content" id="client2">
+            <h2>Happy Clients2</h2>
+            <p>Curabitur rhoncus metus nec ex commodo, vitae efficitur nisi laoreet. Proin nec efficitur nisl, id pulvinar ex. Suspendisse volutpat lacus id est porta ornare. Curabitur auctor tristique turpis quis porta. Etiam eget ante lacinia, pulvinar
+                velit a, viverra dolor. Vivamus condimentum in felis id fringilla.</p>
             <img src="images/happ-client.png" alt="">
         </div>
         <div class="arrow-button">
@@ -254,7 +258,7 @@
         </div>
     </div>
     <!--Reserve table content-->
-    <div class="reserve-table">
+    <div class="reserve-table" id="reserve">
         <div class="heading">
             <h2>Reserve your table</h2>
         </div>
@@ -318,7 +322,10 @@
                     <p>Enter your email adress and subscribe daily newsletter</p>
                 </div>
                 <div class="mail">
-                    <img src="images/footer-icon_email.png" alt=""><input type="text" placeholder="Email Adress">
+                    <div class="input-text">
+                        <input type="text" placeholder="Email Adress">
+                    </div>
+                    <img class="mail-img" src="images/footer-icon_email.png" alt="">
                     <div class="button">
                         <a href="mailto:">SUBSCRIBE</a>
                     </div>

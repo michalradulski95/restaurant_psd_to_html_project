@@ -6,7 +6,13 @@ html {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  body,
+  html {
+    overflow-x: hidden;
+  }
 }
 
 .navbar {
@@ -581,7 +587,6 @@ html {
 @media (max-width: 768px) {
   .specials .wrapper .images .second-dish {
     max-width: 100%;
-    margin: 10px 10px 0 10px;
   }
   .specials .wrapper .images .second-dish img {
     max-width: 100%;
@@ -617,7 +622,6 @@ html {
 
 .food-menu {
   width: 100%;
-  margin-top: 100px;
   height: 690px;
   position: relative;
 }
@@ -625,8 +629,7 @@ html {
 @media (max-width: 768px) {
   .food-menu {
     height: 1100px;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    top: -70%;
   }
 }
 
@@ -773,7 +776,7 @@ html {
 
 .food-menu .placeholder2 {
   position: absolute;
-  right: 30%;
+  right: 20%;
   z-index: 1;
 }
 
@@ -808,43 +811,24 @@ html {
   padding: 0;
 }
 
-.clients .arrow-button {
-  width: 100%;
-  z-index: 1;
+@media (max-width: 768px) {
+  .clients {
+    margin-top: -300px;
+  }
 }
 
 .clients .arrow-button .arrow {
-  width: 5vmin;
-  height: 5vmin;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 15px;
   position: absolute;
 }
 
-.clients .arrow-button .arrow::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  border-width: .1vmin .2vmin 0 0;
-  border-style: solid;
-  border-color: white;
-  display: block;
-}
-
-.clients .arrow-button .arrow::after {
-  content: '';
-  float: left;
-  position: relative;
-  top: -100%;
-  width: 100%;
-  height: 100%;
-  border-width: .1vmin .2vmin 0 0;
-  border-style: solid;
-  border-color: white;
-}
-
 .clients .arrow-button #left {
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
-  left: 20%;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  left: 25%;
   top: 40%;
 }
 
@@ -862,9 +846,9 @@ html {
 }
 
 .clients .arrow-button #right {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  right: 20%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  right: 25%;
   top: 40%;
 }
 
@@ -879,6 +863,10 @@ html {
   .clients .arrow-button #right {
     right: 8%;
   }
+}
+
+.clients #client2 {
+  display: none;
 }
 
 .clients .content {
@@ -1174,7 +1162,6 @@ html {
 .footer {
   background: #373844;
   padding: 150px;
-  position: relative;
 }
 
 @media (max-width: 768px) {
@@ -1252,6 +1239,7 @@ html {
 }
 
 .footer .wrapper .newsletter .mail {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1259,7 +1247,6 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  position: relative;
 }
 
 @media (max-width: 768px) {
@@ -1271,35 +1258,27 @@ html {
   }
 }
 
-.footer .wrapper .newsletter .mail img {
+.footer .wrapper .newsletter .mail .mail-img {
   position: absolute;
-  left: 5%;
   top: 35%;
+  left: 5%;
 }
 
 @media (max-width: 768px) {
-  .footer .wrapper .newsletter .mail img {
-    top: 18%;
-    left: 15%;
+  .footer .wrapper .newsletter .mail .mail-img {
+    top: 15%;
   }
 }
 
 @media (min-width: 768px) {
-  .footer .wrapper .newsletter .mail img {
-    top: 15%;
+  .footer .wrapper .newsletter .mail .mail-img {
     left: 32%;
-  }
-}
-
-@media (max-width: 1440px) {
-  .footer .wrapper .newsletter .mail img {
-    top: 37%;
-    left: 3%;
   }
 }
 
 .footer .wrapper .newsletter .mail input {
   min-width: 310px;
+  min-height: 45px;
   background: #373844;
   border-radius: 5px;
   border: 1px solid #52535e;
@@ -1399,6 +1378,7 @@ html {
 .footer .copyright {
   text-align: center;
   margin-top: 50px;
+  position: relative;
 }
 
 .footer .copyright .line {
@@ -1415,8 +1395,8 @@ html {
 
 .footer .copyright #left-line {
   position: absolute;
-  left: 17%;
-  top: 73%;
+  left: 10%;
+  top: 40%;
 }
 
 @media (max-width: 1440px) {
@@ -1428,8 +1408,8 @@ html {
 
 .footer .copyright #right-line {
   position: absolute;
-  right: 17%;
-  top: 73%;
+  right: 10%;
+  top: 40%;
 }
 
 @media (max-width: 1440px) {

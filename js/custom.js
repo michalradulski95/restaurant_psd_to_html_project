@@ -1,5 +1,4 @@
 /*Hamburger menu code*/
-
 const menus = document.getElementsByClassName('hammburger-menu');
 
 [].forEach.call(menus, function(m) {
@@ -9,13 +8,11 @@ const menus = document.getElementsByClassName('hammburger-menu');
 });
 
 /*Banner carousel code*/
-
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const button3 = document.getElementById('button3');
 
-
-
+/*Changing background*/
 function changebackground() {
     document.getElementById('button1').addEventListener('click', function() {
         document.getElementsByClassName('banner')[0].style.background = "url('images/banner-img.png')";
@@ -34,6 +31,8 @@ function changebackground() {
     })
 }
 changebackground();
+
+/*Setting active class for buttons*/
 let banner = document.getElementById('carousel');
 let btns = banner.getElementsByClassName('button');
 for (let i = 0; i < btns.length; i++) {
@@ -43,3 +42,7 @@ for (let i = 0; i < btns.length; i++) {
         this.querySelector('div').classList.add('active');
     })
 };
+
+/*Client section content change*/
+
+let clients = document.getElementById('')

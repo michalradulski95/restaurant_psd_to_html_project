@@ -74,7 +74,9 @@ html {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
+    @include small-phone {
+        overflow-x: hidden;
+    }
 }
 
 .navbar {
@@ -497,7 +499,6 @@ html {
                 background: #fff;
                 @include small-phone {
                     max-width: 100%;
-                    margin: add-padding(small) add-padding(small) 0 add-padding(small);
                     img {
                         max-width: 100%;
                     }
@@ -528,13 +529,11 @@ html {
 
 .food-menu {
     width: 100%;
-    margin-top: 100px;
     height: 690px;
     position: relative;
     @include small-phone {
         height: 1100px;
-        margin-top: 150px;
-        margin-bottom: 150px;
+        top: -70%;
     }
     @include medium {
         margin-top: 300px;
@@ -631,7 +630,7 @@ html {
     }
     .placeholder2 {
         position: absolute;
-        right: 30%;
+        right: 20%;
         z-index: 1;
         @include small-phone {
             display: none;
@@ -653,37 +652,20 @@ html {
     align-items: center;
     position: relative;
     padding: 0;
+    @include small-phone {
+        margin-top: -300px;
+    }
     .arrow-button {
-        width: 100%;
-        z-index: 1;
         .arrow {
-            width: 5vmin;
-            height: 5vmin;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 15px;
             position: absolute;
-            &::before {
-                content: '';
-                width: 100%;
-                height: 100%;
-                border-width: .1vmin .2vmin 0 0;
-                border-style: solid;
-                border-color: rgb(255, 255, 255);
-                display: block;
-            }
-            &::after {
-                content: '';
-                float: left;
-                position: relative;
-                top: -100%;
-                width: 100%;
-                height: 100%;
-                border-width: .1vmin .2vmin 0 0;
-                border-style: solid;
-                border-color: rgb(255, 255, 255);
-            }
         }
         #left {
-            transform: rotate(225deg);
-            left: 20%;
+            transform: rotate(135deg);
+            left: 25%;
             top: 40%;
             @include small-phone {
                 top: 40%;
@@ -694,8 +676,8 @@ html {
             }
         }
         #right {
-            transform: rotate(45deg);
-            right: 20%;
+            transform: rotate(-45deg);
+            right: 25%;
             top: 40%;
             @include small-phone {
                 top: 40%;
@@ -705,6 +687,9 @@ html {
                 right: 8%;
             }
         }
+    }
+    #client2 {
+        display: none;
     }
     .content {
         text-align: center;
@@ -890,7 +875,6 @@ html {
 .footer {
     background: rgb(55, 56, 68);
     padding: 150px;
-    position: relative;
     @include small-phone {
         padding: 0;
         padding-bottom: add-padding(medium);
@@ -936,31 +920,26 @@ html {
                 }
             }
             .mail {
+                position: relative;
                 display: flex;
                 flex-direction: row;
-                position: relative;
                 @include small-phone {
                     flex-direction: column;
                 }
-                img {
+                .mail-img {
                     position: absolute;
-                    left: 5%;
                     top: 35%;
+                    left: 5%;
                     @include small-phone {
-                        top: 18%;
-                        left: 15%;
+                        top: 15%;
                     }
                     @include medium {
-                        top: 15%;
                         left: 32%;
-                    }
-                    @include large {
-                        top: 37%;
-                        left: 3%;
                     }
                 }
                 input {
                     min-width: 310px;
+                    min-height: 45px;
                     background: rgb(55, 56, 68);
                     border-radius: 5px;
                     border: 1px solid rgb(82, 83, 94);
@@ -1021,6 +1000,7 @@ html {
     .copyright {
         text-align: center;
         margin-top: 50px;
+        position: relative;
         .line {
             border-top: 1px solid rgb(82, 83, 94);
             height: 10px;
@@ -1031,8 +1011,8 @@ html {
         }
         #left-line {
             position: absolute;
-            left: 17%;
-            top: 73%;
+            left: 10%;
+            top: 40%;
             @include large {
                 width: 280px;
                 left: 5%;
@@ -1040,8 +1020,8 @@ html {
         }
         #right-line {
             position: absolute;
-            right: 17%;
-            top: 73%;
+            right: 10%;
+            top: 40%;
             @include large {
                 width: 280px;
                 right: 5%;
