@@ -14,7 +14,7 @@ const button3 = document.getElementById('button3');
 
 /*Changing background*/
 function changebackground() {
-    document.getElementById('button1').addEventListener('click', function() {
+    button1.addEventListener('click', function() {
         document.getElementsByClassName('banner')[0].style.background = "url('images/banner-img.png')";
         document.getElementsByClassName('banner')[0].style.transition = "0.5s ease";
 
@@ -45,4 +45,18 @@ for (let i = 0; i < btns.length; i++) {
 
 /*Client section content change*/
 
-let clients = document.getElementById('')
+const arrow1 = document.getElementById('left');
+const arrow2 = document.getElementById('right');
+
+function changecontent() {
+    arrow1.addEventListener('click', function() {
+        document.getElementById('client1').style.display = "inline";
+        document.getElementById('client2').style.display = "none";
+    })
+    arrow2.addEventListener('click', function() {
+        document.getElementById('client2').style.display = "inline";
+        document.getElementById('client1').style.display = "none";
+    })
+}
+
+changecontent();

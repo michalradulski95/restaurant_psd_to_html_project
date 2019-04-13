@@ -823,6 +823,7 @@ html {
   display: inline-block;
   padding: 15px;
   position: absolute;
+  cursor: pointer;
 }
 
 .clients .arrow-button #left {
@@ -1261,7 +1262,7 @@ html {
 .footer .wrapper .newsletter .mail .mail-img {
   position: absolute;
   top: 35%;
-  left: 5%;
+  left: 5% !important;
 }
 
 @media (max-width: 768px) {
