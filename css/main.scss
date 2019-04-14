@@ -47,7 +47,7 @@ large:30px);
 }
 
 ;
-$large: 1440px;
+$large: 1024px;
 @mixin large {
     @media (max-width: #{$large}) {
         @content
@@ -56,14 +56,14 @@ $large: 1440px;
 
 $medium: 768px;
 @mixin medium {
-    @media (min-width: #{$medium}) {
+    @media (max-width:#{$medium}) {
         @content
     }
 }
 
-$small-phone: 768px;
-@mixin small-phone {
-    @media (max-width:#{$small-phone}) {
+$small: 425px;
+@mixin small {
+    @media (max-width:#{$small}) {
         @content
     }
 }
@@ -74,7 +74,7 @@ html {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    @include small-phone {
+    @include medium {
         overflow-x: hidden;
     }
 }
@@ -88,13 +88,13 @@ html {
     width: 100%;
     z-index: 3;
     background-color: #ffffff;
-    @include small-phone {
+    @include medium {
         flex-direction: column;
         max-width: 100%;
         text-align: center;
     }
     .brand {
-        @include small-phone {
+        @include medium {
             margin-bottom: add-padding(medium);
         }
     }
@@ -104,7 +104,7 @@ html {
         border: 0;
         display: none;
         cursor: pointer;
-        @include small-phone {
+        @include medium {
             display: inline;
         }
         div {
@@ -130,7 +130,7 @@ html {
                 text-align: center;
             }
         }
-        @include small-phone {
+        @include medium {
             .hammburger-links {
                 visibility: hidden;
                 opacity: 0;
@@ -171,7 +171,7 @@ html {
         background-color: color(accent);
         border: none;
         border-radius: $border-radius;
-        @include small-phone {
+        @include medium {
             display: none;
         }
     }
@@ -199,7 +199,7 @@ html {
     z-index: 1;
     padding-top: 50px;
     position: position-set(belowe);
-    @include small-phone {
+    @include medium {
         width: 100%;
     }
     .carousel {
@@ -232,13 +232,13 @@ html {
         left: 15%;
         top: 40%;
         z-index: 2;
-        @include small-phone {
+        @include medium {
             top: 15%;
         }
         h1 {
             font-size: 56px;
             line-height: 0.5;
-            @include small-phone {
+            @include medium {
                 line-height: 1;
             }
         }
@@ -246,7 +246,7 @@ html {
             font-size: 40px;
             line-height: 0;
             padding-left: add-padding(small);
-            @include small-phone {
+            @include medium {
                 line-height: 0.7;
             }
         }
@@ -259,7 +259,7 @@ html {
         top: 70%;
         left: 15%;
         z-index: 1;
-        @include small-phone {
+        @include medium {
             top: 60%;
         }
         @include large {
@@ -275,9 +275,6 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    @include small-phone {
-        min-height: 250px;
-    }
     .banner-content1 {
         z-index: 2;
         height: 35px;
@@ -304,7 +301,7 @@ html {
             font-family: font-family-set(description);
             font-weight: 700;
             font-size: font-size-set(medium);
-            @include small-phone {
+            @include medium {
                 text-align: center;
             }
         }
@@ -317,7 +314,7 @@ html {
     flex-wrap: wrap;
     width: 100%;
     margin: 50px 0;
-    @include small-phone {
+    @include medium {
         width: 100%;
     }
     .left-side {
@@ -346,7 +343,7 @@ html {
                 border-radius: 6px;
                 text-align: center;
                 margin-right: add-padding(large);
-                @include small-phone {
+                @include medium {
                     margin: 0 auto 10px;
                 }
                 a {
@@ -360,7 +357,7 @@ html {
                 }
             }
             img {
-                @include small-phone {
+                @include medium {
                     margin: 0 auto;
                 }
             }
@@ -370,7 +367,7 @@ html {
         display: flex;
         flex-wrap: wrap;
         padding-left: add-padding(medium);
-        @include small-phone {
+        @include medium {
             max-width: 290px;
             margin: 0 auto;
         }
@@ -380,7 +377,7 @@ html {
             img {
                 padding-top: add-padding(small);
                 padding-right: add-padding(small);
-                @include small-phone {
+                @include medium {
                     padding-right: 0;
                 }
             }
@@ -397,10 +394,12 @@ html {
 .specials {
     width: 100%;
     min-height: 890px;
-    z-index: 1;
-    @include small-phone {
+    @include medium {
         width: 100%;
         height: 1300px;
+    }
+    @include large {
+        min-height: 1600px;
     }
     .wrapper {
         width: 100%;
@@ -408,7 +407,7 @@ html {
         padding-top: add-padding(large);
         background-image: url(../images/special-section-background.png);
         max-height: 440px;
-        @include small-phone {
+        @include medium {
             width: 100%;
         }
         .heading {
@@ -472,7 +471,7 @@ html {
                 margin-right: add-padding(small);
                 max-width: 570px;
                 box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
-                @include small-phone {
+                @include medium {
                     width: 100%;
                     margin-left: add-padding(small);
                     margin-top: 31px;
@@ -497,7 +496,7 @@ html {
                 box-shadow: 2px 13px 28px -9px rgba(0, 0, 0, 0.48);
                 z-index: 1;
                 background: #fff;
-                @include small-phone {
+                @include medium {
                     max-width: 100%;
                     img {
                         max-width: 100%;
@@ -517,7 +516,7 @@ html {
             z-index: -1;
             top: 70%;
             right: 13%;
-            @include small-phone {
+            @include medium {
                 display: none;
             }
             @include large {
@@ -529,26 +528,13 @@ html {
 
 .food-menu {
     width: 100%;
-    height: 690px;
-    position: relative;
-    @include small-phone {
-        height: 1100px;
-        top: -70%;
-    }
     @include medium {
-        margin-top: 300px;
-        height: 650px;
-    }
-    @include large {
-        margin-top: 800px;
+        min-height: 1100px;
     }
     .placeholder1 {
         position: absolute;
-        @include small-phone {
+        @include medium {
             display: none;
-        }
-        @include large {
-            z-index: -1;
         }
     }
     h2 {
@@ -603,7 +589,7 @@ html {
         .left-side,
         .right-side {
             padding: add-padding(medium);
-            @include small-phone {
+            @include medium {
                 padding: 0;
             }
             .menu-item {
@@ -632,7 +618,7 @@ html {
         position: absolute;
         right: 20%;
         z-index: 1;
-        @include small-phone {
+        @include medium {
             display: none;
         }
         @include large {
@@ -652,7 +638,7 @@ html {
     align-items: center;
     position: relative;
     padding: 0;
-    @include small-phone {
+    @include medium {
         margin-top: -300px;
     }
     .arrow-button {
@@ -668,7 +654,7 @@ html {
             transform: rotate(135deg);
             left: 25%;
             top: 40%;
-            @include small-phone {
+            @include medium {
                 top: 40%;
                 left: 5%;
             }
@@ -680,7 +666,7 @@ html {
             transform: rotate(-45deg);
             right: 25%;
             top: 40%;
-            @include small-phone {
+            @include medium {
                 top: 40%;
                 right: 5%;
             }
@@ -708,11 +694,8 @@ html {
             font-weight: 400;
             font-size: 0.938em;
             color: #fff;
-            @include small-phone {
-                max-width: 250px;
-            }
             @include medium {
-                min-width: 500px;
+                max-width: 450px;
             }
             &::before {
                 content: '“';
@@ -720,9 +703,9 @@ html {
                 font-size: 8rem;
                 top: -80%;
                 left: -8%;
-                @include small-phone {
+                @include medium {
                     top: -30%;
-                    left: -15%;
+                    left: -30%;
                 }
                 @include large {
                     left: -4%;
@@ -735,7 +718,7 @@ html {
                 font-size: 8rem;
                 top: 40%;
                 left: 95%;
-                @include small-phone {
+                @include medium {
                     top: 65%;
                 }
             }
@@ -766,7 +749,7 @@ html {
         justify-content: center;
         flex-wrap: wrap;
         img {
-            @include small-phone {
+            @include medium {
                 max-width: 320px;
                 max-height: 200px;
             }
@@ -778,7 +761,7 @@ html {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
-                @include small-phone {
+                @include medium {
                     flex-direction: column;
                 }
                 input {
@@ -829,7 +812,7 @@ html {
                 margin-top: 50px;
                 align-items: center;
                 justify-content: space-evenly;
-                @include small-phone {
+                @include medium {
                     margin-top: 20px;
                     flex-direction: column;
                 }
@@ -840,7 +823,7 @@ html {
                     border: none;
                     border-radius: $border-radius;
                     text-align: center;
-                    @include small-phone {
+                    @include medium {
                         max-width: 160px;
                     }
                     a {
@@ -876,7 +859,7 @@ html {
 .footer {
     background: rgb(55, 56, 68);
     padding: 150px;
-    @include small-phone {
+    @include medium {
         padding: 0;
         padding-bottom: add-padding(medium);
     }
@@ -884,7 +867,7 @@ html {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        @include small-phone {
+        @include medium {
             flex-direction: column;
             text-align: center;
         }
@@ -909,7 +892,7 @@ html {
             }
         }
         .newsletter {
-            @include small-phone {
+            @include medium {
                 text-align: center;
             }
             .heading {
@@ -924,59 +907,68 @@ html {
                 position: relative;
                 display: flex;
                 flex-direction: row;
-                @include small-phone {
+                @include medium {
                     flex-direction: column;
                 }
-                .mail-img {
-                    position: absolute;
-                    top: 35%;
-                    left: 5% !important;
-                    @include small-phone {
-                        top: 15%;
-                    }
-                    @include medium {
-                        left: 32%;
-                    }
-                }
-                input {
+                .input-text {
                     min-width: 310px;
-                    min-height: 45px;
-                    background: rgb(55, 56, 68);
-                    border-radius: 5px;
                     border: 1px solid rgb(82, 83, 94);
-                    margin-right: add-padding(small);
-                    &::placeholder {
-                        color: #fff;
-                        position: relative;
-                        left: 20%;
-                    }
-                    @include small-phone {
+                    border-radius: 5px;
+                    margin: 0 auto;
+                    @include medium {
                         max-width: 150px;
-                        min-height: 40px;
-                        margin: 0 auto 10px;
+                        max-height: 42px;
+                    }
+                    input {
+                        min-width: 310px;
+                        background: rgb(55, 56, 68);
+                        border: none;
+                        border-radius: 5px;
+                        &::placeholder {
+                            color: #fff;
+                            position: relative;
+                            left: 20%;
+                        }
+                        @include medium {
+                            max-width: 150px;
+                            min-height: 40px;
+                            margin: 0 auto 10px;
+                        }
+                    }
+                    .mail-img {
+                        position: absolute;
+                        top: 35%;
+                        left: 5%;
+                        @include medium {
+                            left: 32%;
+                            top: 17%;
+                        }
+                        @include small {
+                            left: 15%;
+                        }
                     }
                 }
-                .button {
-                    width: 200px;
-                    height: 47px;
-                    background-color: color(accent);
-                    border: none;
+            }
+            .button {
+                width: 200px;
+                height: 47px;
+                background-color: color(accent);
+                border: none;
+                border-radius: $border-radius;
+                text-align: center;
+                @include medium {
+                    margin: 0 auto;
+                }
+                a {
+                    color: color(font-white);
                     border-radius: $border-radius;
-                    text-align: center;
-                    @include small-phone {
-                        margin: 0 auto;
-                    }
-                    a {
-                        color: color(font-white);
-                        border-radius: $border-radius;
-                        text-decoration: none;
-                        padding: add-padding(small);
-                        position: relative;
-                        top: 30%;
-                        font-family: font-family-set(description);
-                        font-weight: 700;
-                        font-size: font-size-set(small);
-                    }
+                    text-decoration: none;
+                    padding: add-padding(small);
+                    position: relative;
+                    top: 30%;
+                    font-family: font-family-set(description);
+                    font-weight: 700;
+                    font-size: font-size-set(small);
                 }
             }
             .socials {
@@ -991,7 +983,7 @@ html {
             }
             img {
                 margin-top: add-padding(small);
-                @include small-phone {
+                @include medium {
                     width: 200px;
                     margin: 0 auto 10px;
                 }
@@ -1006,7 +998,7 @@ html {
             border-top: 1px solid rgb(82, 83, 94);
             height: 10px;
             width: 450px;
-            @include small-phone {
+            @include medium {
                 display: none;
             }
         }
