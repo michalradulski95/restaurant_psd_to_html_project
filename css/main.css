@@ -629,6 +629,12 @@ html {
   }
 }
 
+@media (max-width: 425px) {
+  .food-menu {
+    min-height: 1700px;
+  }
+}
+
 .food-menu .placeholder1 {
   position: absolute;
 }
@@ -772,6 +778,7 @@ html {
 .clients {
   background-image: url("../images/happy-clients-background.png");
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   min-height: 460px;
   margin-top: 100px;
@@ -849,29 +856,31 @@ html {
 
 .clients .content {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .clients .content h2 {
   font-family: "Playfair Display";
   font-weight: 700;
-  font-size: 35px;
+  font-size: 2.188em;
   color: #fff;
 }
 
 .clients .content p {
   position: relative;
-  width: 740px;
   margin: 0 auto;
+  max-width: 900px;
   font-family: "Sintony";
   font-weight: 400;
   font-size: 0.938em;
   color: #fff;
-}
-
-@media (max-width: 768px) {
-  .clients .content p {
-    max-width: 450px;
-  }
+  padding: 0 100px;
 }
 
 .clients .content p::before {
@@ -879,7 +888,7 @@ html {
   position: absolute;
   font-size: 8rem;
   top: -80%;
-  left: -8%;
+  left: 0;
 }
 
 @media (max-width: 768px) {
@@ -895,13 +904,20 @@ html {
   }
 }
 
+@media (max-width: 425px) {
+  .clients .content p::before {
+    top: 1%;
+    left: 0;
+  }
+}
+
 .clients .content p::after {
   content: '”';
   position: absolute;
   color: #ffffff;
   font-size: 8rem;
   top: 40%;
-  left: 95%;
+  right: 0;
 }
 
 @media (max-width: 768px) {
@@ -1249,6 +1265,7 @@ html {
   background: #373844;
   border: none;
   border-radius: 5px;
+  min-height: 42px;
 }
 
 .footer .wrapper .newsletter .mail .input-text input::-webkit-input-placeholder {
